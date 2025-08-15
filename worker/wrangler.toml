@@ -1,0 +1,14 @@
+name = "wandbild-worker"
+main = "src/index.ts"
+compatibility_date = "2025-08-01"
+
+[observability]
+enabled = true
+
+[env.stage]
+name = "wandbild-worker-stage"
+routes = [{ pattern = "ai-stage.example.com/*", zone_id = "$CF_ZONE_ID" }]
+
+[env.prod]
+name = "wandbild-worker-prod"
+routes = [{ pattern = "ai.example.com/*", zone_id = "$CF_ZONE_ID" }]
